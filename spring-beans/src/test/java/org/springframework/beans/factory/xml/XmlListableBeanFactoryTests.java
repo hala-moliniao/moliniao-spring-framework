@@ -16,14 +16,8 @@
 
 package org.springframework.beans.factory.xml;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import org.springframework.beans.BeansException;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.BeanFactory;
@@ -35,6 +29,11 @@ import org.springframework.tests.sample.beans.ITestBean;
 import org.springframework.tests.sample.beans.LifecycleBean;
 import org.springframework.tests.sample.beans.TestBean;
 import org.springframework.tests.sample.beans.factory.DummyFactory;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -67,7 +66,8 @@ public class XmlListableBeanFactoryTests extends AbstractListableBeanFactoryTest
 		parent.registerBeanDefinition("rod", bd2);
 
 		this.factory = new DefaultListableBeanFactory(parent);
-		new XmlBeanDefinitionReader(this.factory).loadBeanDefinitions(new ClassPathResource("test.xml", getClass()));
+		//new XmlBeanDefinitionReader(this.factory).loadBeanDefinitions(new ClassPathResource("test.xml", getClass()));
+		new XmlBeanDefinitionReader(this.factory).loadBeanDefinitions(new ClassPathResource("limz-test.xml", getClass()));
 
 		this.factory.addBeanPostProcessor(new BeanPostProcessor() {
 			@Override
